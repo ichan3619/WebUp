@@ -1,7 +1,7 @@
 <?php
 require '../Config/database.php';  
-//$patientID = $_SESSION['patientID'];
-$patientID = 2;
+session_start();
+$patientID = $_SESSION['patientID'];
 
 $query = "SELECT DISTINCT a.consultDate AS dateTime, a.consultType, c.campusName, a.appID
     FROM Appointments a

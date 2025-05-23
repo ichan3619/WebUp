@@ -1,5 +1,10 @@
 <?php
 require '../Config/database.php';  
+session_start();
+if (!isset($_SESSION['patientID'])) {
+    die("Unauthorized. Please log in.");
+}
+$patientID = $_SESSION['patientID'];
 
 if (isset($_GET['id'])) {
     $appID = (int) $_GET['id'];

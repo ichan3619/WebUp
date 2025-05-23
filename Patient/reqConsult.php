@@ -1,7 +1,7 @@
 <?php
 session_start();
 require '../Config/database.php';
-$_SESSION['patientID'] = 2;
+$_SESSION['patientID'] = $_SESSION['UID'] ?? null; // Assuming UID is set when the patient logs in
 if (!isset($_SESSION['patientID'])) {
   die("Unauthorized. Please log in.");
 }

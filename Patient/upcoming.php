@@ -1,8 +1,7 @@
 <?php
 require '../Config/database.php';
 session_start();
-// $patientID = $_SESSION['patientID'];
-$patientID = 2;
+$patientID = $_SESSION['patientID'];
 
 $query = "SELECT a.appID, a.consultDate, a.consultType, a.link, c.campusName, a.mode, a.status
           FROM appointments a
@@ -123,7 +122,11 @@ $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </tbody>
       </table>
     <?php else: ?>
-      <p>No upcoming consultations found.</p>
+      <div style="justify-content: center;
+                  display: flex;
+                  height: 100vh;">
+        <p>No upcoming consultations found.</p>
+      </div>
     <?php endif; ?>
   </main>
 </div>
